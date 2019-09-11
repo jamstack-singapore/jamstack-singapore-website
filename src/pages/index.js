@@ -72,8 +72,10 @@ const IndexPage = () => {
                 </h2>
                 <p>
                   If you'd like to speak at one of our events, we're always
-                  looking for speakers, create an issue
-                  [here](https://github.com/jamstack-singapore/Events/issues/new)
+                  looking for speakers, create an issue{" "}
+                  <a href="https://github.com/jamstack-singapore/Events/issues/new">
+                    here
+                  </a>
                 </p>
               </>
             )}
