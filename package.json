@@ -1,7 +1,7 @@
 {
   "name": "jamstack-singapore-website",
   "private": true,
-  "description": "JAMStack Singapore's website",
+  "description": "JAMstack Singapore's website",
   "version": "0.1.0",
   "author": "Ollie Monk <ollie@olliemonk.com>",
   "dependencies": {
