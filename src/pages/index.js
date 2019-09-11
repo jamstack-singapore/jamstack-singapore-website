@@ -1,13 +1,13 @@
 import React from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
 import Image from "gatsby-image"
+import { useStaticQuery, graphql } from "gatsby"
 import { Grid, Row, Col } from "react-styled-flexboxgrid"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 const IndexPage = () => {
-  const data = useStaticQuery(graphql`
+  const { headerImage, github } = useStaticQuery(graphql`
     query {
       headerImage: file(relativePath: { eq: "jamstack-header.jpg" }) {
         childImageSharp {
@@ -16,16 +16,67 @@ const IndexPage = () => {
           }
         }
       }
+      github {
+        repository(owner: "jamstack-singapore", name: "Events") {
+          issues(last: 20, states: OPEN, labels: ["Talk"]) {
+            edges {
+              node {
+                id
+                author {
+                  avatarUrl
+                  login
+                  url
+                }
+                bodyHTML
+                title
+                url
+              }
+            }
+          }
+        }
+      }
     }
   `)
 
+  const latestTalks = github.repository.issues.edges
   return (
     <Layout>
       <SEO title="Home" />
       <Grid>
         <Row>
           <Col xs={12} md={6}>
-            <Image fluid={data.headerImage.childImageSharp.fluid} />
+            <Image fluid={headerImage.childImageSharp.fluid} />
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            {latestTalks && latestTalks.length > 0 ? (
+              <>
+                <h2>Our upcoming events</h2>
+                {latestTalks.map(({ node }) => {
+                  const { title, url } = node
+                  return (
+                    <a href={url} target="_blank" rel="noopener noreferrer">
+                      {title}
+                    </a>
+                  )
+                })}
+              </>
+            ) : (
+              <>
+                <h2>
+                  It looks like we don't have any talks lined up at the moment
+                  <span role="img" aria-label="thinking emoji">
+                    🤔
+                  </span>
+                </h2>
+                <p>
+                  If you'd like to speak at one of our events, we're always
+                  looking for speakers, create an issue
+                  [here](https://github.com/jamstack-singapore/Events/issues/new)
+                </p>
+              </>
+            )}
           </Col>
         </Row>
       </Grid>

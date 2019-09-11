@@ -2,7 +2,6 @@ import React from "react"
 import PropTypes from "prop-types"
 import { ThemeProvider } from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
-import Image from "gatsby-image"
 
 import Header from "./header"
 import Footer from "./footer"
