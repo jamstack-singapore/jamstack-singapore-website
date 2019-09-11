@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "jamstack-singapore-website",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "JAMStack Singapore's website",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Ollie Monk <ollie@olliemonk.com>",
   "dependencies": {
     "gatsby": "^2.13.39",
     "gatsby-image": "^2.2.6",
@@ -16,7 +16,9 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-helmet": "^5.2.1"
+    "react-helmet": "^5.2.1",
+    "react-styled-flexboxgrid": "^3.1.0",
+    "styled-components": "^4.3.2"
   },
   "devDependencies": {
     "prettier": "^1.18.2"
