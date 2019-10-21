@@ -13,6 +13,14 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-plugin-web-font-loader",
+      options: {
+        google: {
+          families: ["Roboto:100,400,900"],
+        },
+      },
+    },
+    {
       resolve: "gatsby-source-graphql",
       options: {
         typeName: "GitHub",

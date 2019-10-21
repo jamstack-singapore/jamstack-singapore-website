@@ -1,31 +1,14 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { ThemeProvider } from "styled-components"
-import { useStaticQuery, graphql } from "gatsby"
 
-import Header from "./header"
-import Footer from "./footer"
 import theme from "../components/theme"
 import "./layout.css"
 
 const Layout = ({ children }) => {
-  const { site } = useStaticQuery(graphql`
-    {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
   return (
     <ThemeProvider theme={theme}>
-      <>
-        <Header siteTitle={site.siteMetadata.title} />
-        <main>{children}</main>
-        <Footer />
-      </>
+      <main>{children}</main>
     </ThemeProvider>
   )
 }
