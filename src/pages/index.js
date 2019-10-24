@@ -63,13 +63,20 @@ const IndexPage = () => {
         <Banner />
         <Info>
           <H2>Arriving December 5th, 7:00pm at</H2>
-          <H2>Stripe Singapore</H2>
+          <a href="https://twitter.com/StripeSingapore" target="blank">
+            <H2>Stripe Singapore</H2>
+          </a>
           <H3>In collaboration with</H3>
           <a href="https://reactknowledgeable.org/meetups/5" target="blank">
             <H3>React Knowledgeable</H3>
           </a>
           <Images>
-            <Image fixed={stripe} />
+            <a
+              href="https://stripe.com/jobs/search?t=design%2Cengineering%2Coperations%2Cproduct-and-technical&l=singapore"
+              target="blank"
+            >
+              <Image fixed={stripe} />
+            </a>
             <Image fixed={rk} />
           </Images>
         </Info>
