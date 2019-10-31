@@ -3,7 +3,7 @@ module.exports = {
     title: `JAMstack Singapore`,
     description: `Singapore's JAMstack meetup!`,
     url: `https://jamstacksingapore.com`,
-    icon: `/icon.png`, // This path is relative to the root of the site.
+    icon: `/social_icon.png`, // This path is relative to the root of the site.
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
