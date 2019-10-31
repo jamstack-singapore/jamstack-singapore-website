@@ -18,6 +18,8 @@ function SEO({ description, lang, meta, title }) {
           siteMetadata {
             title
             description
+            icon
+            url
           }
         }
       }
@@ -55,6 +57,10 @@ function SEO({ description, lang, meta, title }) {
           content: `summary`,
         },
         {
+          name: `twitter:card`,
+          content: `summary_large_image`,
+        },
+        {
           name: `twitter:creator`,
           content: site.siteMetadata.author,
         },
@@ -65,6 +71,14 @@ function SEO({ description, lang, meta, title }) {
         {
           name: `twitter:description`,
           content: metaDescription,
+        },
+        {
+          name: `twitter:image`,
+          content: `${site.siteMetadata.url}${site.siteMetadata.icon}`,
+        },
+        {
+          name: `og:image`,
+          content: `${site.siteMetadata.url}${site.siteMetadata.icon}`,
         },
       ].concat(meta)}
     />
