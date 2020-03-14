@@ -9,30 +9,9 @@ import Layout from "../components/layout"
 
 const imagesQuery = graphql`
   query {
-    stripeSm: file(relativePath: { eq: "stripe.png" }) {
+    graphQLSgLg: file(relativePath: { eq: "graphql_sg_lg.png" }) {
       childImageSharp {
-        fixed(width: 100) {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
-    stripeLg: file(relativePath: { eq: "stripe.png" }) {
-      childImageSharp {
-        fixed(width: 150) {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
-    rkSm: file(relativePath: { eq: "rk.png" }) {
-      childImageSharp {
-        fixed(width: 100) {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
-    rkLg: file(relativePath: { eq: "rk.png" }) {
-      childImageSharp {
-        fixed(width: 150) {
+        fixed(width: 300) {
           ...GatsbyImageSharpFixed
         }
       }
@@ -41,45 +20,24 @@ const imagesQuery = graphql`
 `
 
 const IndexPage = () => {
-  const { stripeSm, stripeLg, rkSm, rkLg } = useStaticQuery(imagesQuery)
-  const stripe = [
-    stripeSm.childImageSharp.fixed,
-    {
-      ...stripeLg.childImageSharp.fixed,
-      media: `(min-width: 375px)`,
-    },
-  ]
-  const rk = [
-    rkSm.childImageSharp.fixed,
-    {
-      ...rkLg.childImageSharp.fixed,
-      media: `(min-width: 375px)`,
-    },
-  ]
+  const { graphQLSgLg } = useStaticQuery(imagesQuery)
   return (
     <Layout>
       <Container>
         <SEO title="Home" />
         <Banner />
         <Info>
-          <H2>Arriving December 5th, 7:00pm at</H2>
-          <a href="https://twitter.com/StripeSingapore" target="blank">
-            <H2>Stripe Singapore</H2>
-          </a>
+          <H2>April 9th, 7:00pm</H2>
+          <H2>Location TBD*</H2>
           <H3>In collaboration with</H3>
-          <a href="https://reactknowledgeable.org/meetups/5" target="blank">
-            <H3>React Knowledgeable</H3>
+          <a href="https://graphql-sg.github.io/" target="blank">
+            <H3>GraphQL SG</H3>
           </a>
           <Images>
-            <a
-              href="https://stripe.com/jobs/search?t=design%2Cengineering%2Coperations%2Cproduct-and-technical&l=singapore"
-              target="blank"
-            >
-              <Image fixed={stripe} />
-            </a>
-            <Image fixed={rk} />
+            <Image fixed={graphQLSgLg.childImageSharp.fixed} />
           </Images>
         </Info>
+        <Sub>* Probably online on account of the present life and times</Sub>
       </Container>
     </Layout>
   )
@@ -121,4 +79,7 @@ const Images = styled("div")`
   @media (max-width: 375px) {
     flex-direction: column;
   }
+`
+const Sub = styled("p")`
+  font-style: italic;
 `
