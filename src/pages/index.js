@@ -36,6 +36,14 @@ const IndexPage = () => {
           <Images>
             <Image fixed={graphQLSgLg.childImageSharp.fixed} />
           </Images>
+          <H4>🎙️ Calling for speakers!</H4>
+          <a
+            href="https://github.com/graphql-sg/graphql-sg.github.io/issues/4"
+            target="blank"
+          >
+            <H4>Open for idea submission here.</H4>
+          </a>
+          <p></p>
         </Info>
         <Sub>* Probably online on account of the present life and times</Sub>
       </Container>
@@ -69,6 +77,12 @@ const H3 = styled("h3")`
   font-weight: 900;
   font-style: italic;
   font-size: 2rem;
+  margin: 0rem;
+`
+const H4 = styled("h4")`
+  font-weight: 900;
+  font-style: italic;
+  font-size: 1.2rem;
   margin: 0rem;
 `
 const Images = styled("div")`
